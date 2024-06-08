@@ -75,14 +75,15 @@ def main():
     st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg"])
     if uploaded_file is not None:
-        with open("temp_video.mp4", "wb") as f:
+        upload_name = f"temp_video{uploaded_file.name}.mp4"
+        with open(upload_name, "wb") as f:
             f.write(uploaded_file.getbuffer())
         st.success("File Uploaded Successfully!")
 
         if st.button('Classify'):
-            output_video = 'playback.mp4'
+            output_video = f"playback{uploaded_file.name}.mp4"
             with st.spinner('Wait for it...'):
-                predict_frames("temp_video.mp4",output_video,SEQUENCE_LENGTH)
+                predict_frames(upload_name,output_video,SEQUENCE_LENGTH)
                 st.success('Done!')
                 st.video(output_video)
     else:
