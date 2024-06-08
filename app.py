@@ -66,7 +66,11 @@ def main():
 
     st.sidebar.info("""
     Machine Learning for predict Night Violence Video 
-    By Theeratdolchat Chatchai""")
+    By Theeratdolchat Chatchai
+    """)
+    st.sidebar.page_link("https://medium.com/@sitthach7777/night-violence-classification-ตรวจจับความรุนแรงในยามวิกาล-ef980f9de419", label="Medium", icon="🌎")
+    st.sidebar.page_link("https://colab.research.google.com/drive/1az8h0aFIjUGaglJQNTIaK7doAY_T35r9?usp=sharing", label="Colab", icon="🌙")
+    st.sidebar.page_link("https://github.com/Theerat22/night-violence-classification.git", label="Github", icon="🌟")
 
     st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg"])
@@ -75,7 +79,7 @@ def main():
             f.write(uploaded_file.getbuffer())
         st.success("File Uploaded Successfully")
 
-        if st.button('Classify The Video'):
+        if st.button('Classify'):
             output_video = 'playback.mp4'
             with st.spinner('Wait for it...'):
                 predict_frames("temp_video.mp4",output_video,SEQUENCE_LENGTH)
