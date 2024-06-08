@@ -1,6 +1,10 @@
-streamlit 
+keras
 numpy
-opencv-python-headless
-keras==2.15.0
-tensorflow==2.15.0
-Pillow
+streamlit
+tqdm
+opencv-python
+pyyaml
+matplotlib
+seaborn
+tensorflow-cpu
+torch
