@@ -74,7 +74,7 @@ def main():
             with st.spinner('Wait for it...'):
                 predict_frames("temp_video.mp4",output_video,SEQUENCE_LENGTH)
                 st.success('Done!')
-        st.video(output_video)
+                st.video(output_video)
     else:
         st.text("Please upload a video file")
 
