@@ -4,7 +4,7 @@ import cv2
 import os
 import subprocess
 from collections import deque
-from keras.models import *
+from keras.models import load_model
 
 model = load_model('Mobilenet_model.h5')
 
