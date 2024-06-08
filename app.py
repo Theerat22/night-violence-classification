@@ -68,8 +68,7 @@ def main():
     Machine Learning for predict Night Violence Video 
     By Theeratdolchat Chatchai""")
 
-    st.title('Night Violence Classification')
-    st.header('ตรวจจับความรุนแรงในยามวิกาล')
+    st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg"])
     if uploaded_file is not None:
         with open("temp_video.mp4", "wb") as f:
