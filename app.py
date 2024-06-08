@@ -7,7 +7,7 @@ import tensorflow
 from collections import deque
 from tensorflow.keras.models import load_model
 
-MODEL = load_model('Mobilenet_modelV2.h5')
+model = load_model('Mobilenet_modelV2.h5')
 
 SEQUENCE_LENGTH = 16
 IMAGE_HEIGHT,IMAGE_WIDTH = 64,64
@@ -44,7 +44,7 @@ def predict_frames(video_file_path, output_file_path, SEQUENCE_LENGTH):
         if len(frames_queue) == SEQUENCE_LENGTH:
 
             # Predict
-            predicted_labels_probabilities = MODEL.predict(np.expand_dims(frames_queue, axis = 0))[0]
+            predicted_labels_probabilities = model.predict(np.expand_dims(frames_queue, axis = 0))[0]
             predicted_label = np.argmax(predicted_labels_probabilities)
             predicted_class_name = CLASSES_LIST[predicted_label]
 
@@ -77,7 +77,7 @@ def main():
     if uploaded_file is not None:
         with open("temp_video.mp4", "wb") as f:
             f.write(uploaded_file.getbuffer())
-        st.success("File Uploaded Successfully")
+        st.success("File Uploaded Successfully!")
 
         if st.button('Classify'):
             output_video = 'playback.mp4'
