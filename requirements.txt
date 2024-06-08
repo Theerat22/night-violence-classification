@@ -2,7 +2,7 @@ keras
 numpy
 streamlit
 tqdm
-opencv-python
+opencv-python-headless
 pyyaml
 matplotlib
 seaborn
