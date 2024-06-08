@@ -7,13 +7,13 @@ import tensorflow
 from collections import deque
 from tensorflow.keras.models import load_model
 
-model = load_model('Mobilenet_model.h5')
+# MODEL = load_model('Mobilenet_model.h5')
 
 SEQUENCE_LENGTH = 16
 IMAGE_HEIGHT,IMAGE_WIDTH = 64,64
 CLASSES_LIST = ["Violence","NonViolence"]
 
-def predict_frames(video_file_path, output_file_path, SEQUENCE_LENGTH, model):
+def predict_frames(video_file_path, output_file_path, SEQUENCE_LENGTH):
 
     video_reader = cv2.VideoCapture(video_file_path)
 
@@ -44,7 +44,7 @@ def predict_frames(video_file_path, output_file_path, SEQUENCE_LENGTH, model):
         if len(frames_queue) == SEQUENCE_LENGTH:
 
             # Predict
-            predicted_labels_probabilities = model.predict(np.expand_dims(frames_queue, axis = 0))[0]
+            predicted_labels_probabilities = MODEL.predict(np.expand_dims(frames_queue, axis = 0))[0]
             predicted_label = np.argmax(predicted_labels_probabilities)
             predicted_class_name = CLASSES_LIST[predicted_label]
 
@@ -69,7 +69,7 @@ def main():
         if st.button('Classify The Video'):
             output_video = 'playback.mp4'
             with st.spinner('Wait for it...'):
-                predict_frames(uploaded_file,output_video,SEQUENCE_LENGTH,model)
+                predict_frames(uploaded_file,output_video,SEQUENCE_LENGTH)
                 st.success('Done!')
         st.video(output_video)
     else:
