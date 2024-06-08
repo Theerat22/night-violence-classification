@@ -62,7 +62,14 @@ def predict_frames(video_file_path, output_file_path, SEQUENCE_LENGTH):
 
 
 def main():
+    st.sidebar.title("About")
+
+    st.sidebar.info("""
+    Machine Learning for predict Night Violence Video 
+    By Theeratdolchat Chatchai""")
+
     st.title('Night Violence Classification')
+    st.header('ตรวจจับความรุนแรงในยามวิกาล')
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg"])
     if uploaded_file is not None:
         with open("temp_video.mp4", "wb") as f:
@@ -76,7 +83,7 @@ def main():
                 st.success('Done!')
                 st.video(output_video)
     else:
-        st.text("Please upload a video file")
+        st.subheader("Please upload a video file.")
 
 if __name__ == '__main__':
     main()
