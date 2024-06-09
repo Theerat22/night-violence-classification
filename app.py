@@ -62,25 +62,6 @@ def predict_frames(video_file_path, output_file_path, SEQUENCE_LENGTH):
 
 
 def main():
-    
-
-    st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
-    uploaded_file = st.sidebar.file_uploader("Choose a video...", type=["mp4", "mpeg"])
-    if uploaded_file is not None:
-        upload_name = "playback/temp_video.mp4"
-        with open(upload_name, "wb") as f:
-            f.write(uploaded_file.getbuffer())
-        st.sidebar.success("File Uploaded Successfully!")
-
-        if st.sidebar.button('Classify'):
-            output_video = 'playback/playback.mp4'
-            with st.spinner('Wait for it...'):
-                predict_frames(upload_name,output_video,SEQUENCE_LENGTH)
-                st.success('Done!')
-                st.video(output_video)
-    else:
-        st.sidebar.text("Please upload a video file.")
-
     st.sidebar.title("About")
 
     st.sidebar.info("""
@@ -90,6 +71,23 @@ def main():
     st.sidebar.page_link("https://medium.com/@sitthach7777/night-violence-classification-ตรวจจับความรุนแรงในยามวิกาล-ef980f9de419", label="Medium", icon="🌎")
     st.sidebar.page_link("https://colab.research.google.com/drive/1az8h0aFIjUGaglJQNTIaK7doAY_T35r9?usp=sharing", label="Colab", icon="🌙")
     st.sidebar.page_link("https://github.com/Theerat22/night-violence-classification.git", label="Github", icon="🌟")
+
+    st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
+    uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg"])
+    if uploaded_file is not None:
+        upload_name = "playback/temp_video.mp4"
+        with open(upload_name, "wb") as f:
+            f.write(uploaded_file.getbuffer())
+        st.success("File Uploaded Successfully!")
+
+        if st.button('Classify'):
+            output_video = 'playback/playback.mp4'
+            with st.spinner('Wait for it...'):
+                predict_frames(upload_name,output_video,SEQUENCE_LENGTH)
+                st.success('Done!')
+                st.video(output_video)
+    else:
+        st.subheader("Please upload a video file.")
 
 if __name__ == '__main__':
     main()
