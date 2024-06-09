@@ -73,21 +73,21 @@ def main():
     st.sidebar.page_link("https://github.com/Theerat22/night-violence-classification.git", label="Github", icon="🌟")
 
     st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
-    uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg"])
+    uploaded_file = st.sidebar.file_uploader("Choose a video...", type=["mp4", "mpeg"])
     if uploaded_file is not None:
         upload_name = "playback/temp_video.mp4"
         with open(upload_name, "wb") as f:
             f.write(uploaded_file.getbuffer())
-        st.success("File Uploaded Successfully!")
+        st.sidebar.success("File Uploaded Successfully!")
 
-        if st.button('Classify'):
+        if st.sidebar.button('Classify'):
             output_video = 'playback/playback.mp4'
             with st.spinner('Wait for it...'):
                 predict_frames(upload_name,output_video,SEQUENCE_LENGTH)
-                st.success('Done!')
+                st.sidebar.success('Done!')
                 st.video(output_video)
     else:
-        st.subheader("Please upload a video file.")
+        st.sidebar.text("Please upload a video file.")
 
 if __name__ == '__main__':
     main()
