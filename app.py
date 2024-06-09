@@ -62,15 +62,7 @@ def predict_frames(video_file_path, output_file_path, SEQUENCE_LENGTH):
 
 
 def main():
-    st.sidebar.title("About")
-
-    st.sidebar.info("""
-    Machine Learning for predict Night Violence Video 
-    By Theeratdolchat Chatchai
-    """)
-    st.sidebar.page_link("https://medium.com/@sitthach7777/night-violence-classification-ตรวจจับความรุนแรงในยามวิกาล-ef980f9de419", label="Medium", icon="🌎")
-    st.sidebar.page_link("https://colab.research.google.com/drive/1az8h0aFIjUGaglJQNTIaK7doAY_T35r9?usp=sharing", label="Colab", icon="🌙")
-    st.sidebar.page_link("https://github.com/Theerat22/night-violence-classification.git", label="Github", icon="🌟")
+    
 
     st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
     uploaded_file = st.sidebar.file_uploader("Choose a video...", type=["mp4", "mpeg"])
@@ -84,10 +76,20 @@ def main():
             output_video = 'playback/playback.mp4'
             with st.spinner('Wait for it...'):
                 predict_frames(upload_name,output_video,SEQUENCE_LENGTH)
-                st.sidebar.success('Done!')
+                st.success('Done!')
                 st.video(output_video)
     else:
         st.sidebar.text("Please upload a video file.")
+
+    st.sidebar.title("About")
+
+    st.sidebar.info("""
+    Machine Learning for predict Night Violence Video 
+    By Theeratdolchat Chatchai
+    """)
+    st.sidebar.page_link("https://medium.com/@sitthach7777/night-violence-classification-ตรวจจับความรุนแรงในยามวิกาล-ef980f9de419", label="Medium", icon="🌎")
+    st.sidebar.page_link("https://colab.research.google.com/drive/1az8h0aFIjUGaglJQNTIaK7doAY_T35r9?usp=sharing", label="Colab", icon="🌙")
+    st.sidebar.page_link("https://github.com/Theerat22/night-violence-classification.git", label="Github", icon="🌟")
 
 if __name__ == '__main__':
     main()
