@@ -74,7 +74,7 @@ def main():
     st.sidebar.page_link("https://drive.google.com/file/d/1mE9muV_ZfgemjrEmkr4Cl_jQgt_p-4it/view?usp=sharing", label="How to use", icon="❔")
 
     st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
-    uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg","mov"])
+    uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg","mov","avi"])
     if uploaded_file is not None:
         upload_name = "playback/temp_video.mp4"
         with open(upload_name, "wb") as f:
