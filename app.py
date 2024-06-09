@@ -69,8 +69,9 @@ def main():
     By Theeratdolchat Chatchai
     """)
     st.sidebar.page_link("https://medium.com/@sitthach7777/night-violence-classification-ตรวจจับความรุนแรงในยามวิกาล-ef980f9de419", label="Medium", icon="🌎")
-    st.sidebar.page_link("https://colab.research.google.com/drive/1az8h0aFIjUGaglJQNTIaK7doAY_T35r9?usp=sharing", label="Colab", icon="🌙")
+    st.sidebar.page_link("https://drive.google.com/file/d/1XcVAO-kDQ4uXvDOPHhasy9uRKM5Uk4pg/view?usp=sharing", label="Notebook", icon="🌙")
     st.sidebar.page_link("https://github.com/Theerat22/night-violence-classification.git", label="Github", icon="🌟")
+    st.sidebar.page_link("https://drive.google.com/file/d/1mE9muV_ZfgemjrEmkr4Cl_jQgt_p-4it/view?usp=sharing", label="How to use", icon="❔")
 
     st.title('Night Violence Classification - ตรวจจับความรุนแรงในยามวิกาล')
     uploaded_file = st.file_uploader("Choose a video...", type=["mp4", "mpeg"])
