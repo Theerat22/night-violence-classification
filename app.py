@@ -7,7 +7,7 @@ import tensorflow
 from collections import deque
 from tensorflow.keras.models import load_model
 
-model = load_model('Mobilenet_modelV2.h5')
+model = load_model('Mobilenet_modelV3.h5')
 
 SEQUENCE_LENGTH = 16
 IMAGE_HEIGHT,IMAGE_WIDTH = 64,64
