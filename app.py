@@ -12,7 +12,7 @@ IMAGE_HEIGHT, IMAGE_WIDTH = 64, 64
 CLASSES_LIST = ["Violence", "NonViolence"]
 
 def predict_webcam(SEQUENCE_LENGTH):
-    video_reader = cv2.VideoCapture(0)  
+    video_reader = cv2.VideoCapture(1)  
 
     if not video_reader.isOpened():
         st.error("Could not open webcam.")
